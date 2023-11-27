@@ -12,6 +12,7 @@ jobs:
         run: echo Checkout code
 
   Helm_Installation:
+    needs: Checkout_code
     runs-on: ubuntu-latest
     steps:  
       - name: Run steps for Helm Installation
@@ -20,12 +21,14 @@ jobs:
           echo step2
 
   Create_Deployment:
+    needs: Helm_Installation
     runs-on: ubuntu-latest
     steps:
       - name: Run steps for Create Deployment
         run: echo Create Deployment
 
   Post_Actions:
+    needs: Create_Deployment
     runs-on: ubuntu-latest
     steps:
       - name: Run steps for Post Actions
