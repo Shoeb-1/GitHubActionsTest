@@ -1,0 +1,32 @@
+name: Helmchart_EKS
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  Checkout code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run steps for Checkout
+        run: echo Checkout code
+
+  Helm Installation:
+    runs-on: ubuntu-latest
+    steps:  
+      - name: Run steps for Helm Installation
+        run: |
+          echo step1
+          echo step2
+
+  Create Deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run steps for Create Deployment
+        run: echo Create Deployment
+
+  Post Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run steps for Post Actions
+        run: echo Post Actions
