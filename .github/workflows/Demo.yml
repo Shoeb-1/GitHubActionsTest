@@ -1,0 +1,23 @@
+name: Sampleworkflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo this is job1
+  job2:
+    runs-on: ubuntu-latest
+    steps:  
+      - name: Run a multi-line script
+        run: |
+          echo hey there,
+          echo this is job2
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo this is job3
