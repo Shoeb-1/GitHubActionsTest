@@ -10,13 +10,3 @@ jobs:
     steps:
       - name: Run steps for Checkout
         run: echo Checkout code
-
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-        run: echo this is job2
-
-  job3:
-    runs-on: ubuntu-latest
-    steps:
-        run: echo this is job3
