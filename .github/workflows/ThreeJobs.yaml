@@ -9,16 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Job1
-        run: echo this is Job1
+        run: sleep 10
         
   job2:
     runs-on: ubuntu-latest
     steps:
       - name: Job2
-        run: echo this is Job2
+        run: sleep 5
         
   job3:
     runs-on: ubuntu-latest
     steps:
       - name: Job3
-        run: echo this is Job3
+        run: sleep 15
