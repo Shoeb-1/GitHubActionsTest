@@ -8,8 +8,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: job1
-        run: echo this is job1
+      - name: Run steps for Checkout
+        run: echo Checkout code
 
   job2:
     runs-on: ubuntu-latest
