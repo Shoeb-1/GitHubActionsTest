@@ -1,0 +1,26 @@
+name: SequentialJobs
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job1
+        run: sleep 10
+        
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job2
+        run: sleep 5
+        
+  job3:
+    needs: job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job3
+        run: sleep 15
