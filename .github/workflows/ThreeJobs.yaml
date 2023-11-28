@@ -1,4 +1,4 @@
-name: Helmchart_EKS
+name: ParallelJobs
 
 on:
   workflow_dispatch:
