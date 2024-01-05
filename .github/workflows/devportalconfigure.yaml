@@ -1,0 +1,21 @@
+name: devportalconfigure
+on:
+  workflow_dispatch:
+
+jobs:
+  devportalconfigure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: devportalconfigure
+        run: |
+          export PROXY=$PROXY
+          export https_proxy=$PROXY
+          export http_proxy=$PROXY
+          credentials=$(aws sts assume-role --role-arn "arn:aws:iam::$ACCOUNT:role/$ROLE" --role-session-name "JenkinsAuthentication" | jq ".")
+          export AWS_ACCESS_KEY_ID=$(echo $credentials | jq ".Credentials.AccessKeyId" | tr -d '"')
+          export AWS_SECRET_ACCESS_KEY=$(echo $credentials | jq ".Credentials.SecretAccessKey" | tr -d '"')
+          export AWS_SESSION_TOKEN=$(echo $credentials | jq ".Credentials.SessionToken" | tr -d '"')
+          aws sts get-caller-identity
+          
+          # kubectl exec -it "$(kubectl get po -n devportal | awk '/devportal/{print$1}' | head -1)" -n devportal -- your actions here like enable/disable module, ls,cat etc
+          kubectl exec -it "$(kubectl get po -n devportal | awk '/devportal/{print$1}' | head -1)" -n devportal -- drush pm:uninstall action
